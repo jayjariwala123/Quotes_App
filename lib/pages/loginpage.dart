@@ -40,16 +40,17 @@ class _LoginPageState extends State<LoginPage> {
 
         showDialog(
           context: context,
-          builder: (context) => AlertDialog(
-            title: const Text("Login Failed"),
-            content: Text(errorMessage),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text("OK"),
+          builder:
+              (context) => AlertDialog(
+                title: const Text("Login Failed"),
+                content: Text(errorMessage),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text("OK"),
+                  ),
+                ],
               ),
-            ],
-          ),
         );
       }
     }
@@ -64,7 +65,9 @@ class _LoginPageState extends State<LoginPage> {
         actions: [
           Row(
             children: [
-              Icon(themeProvider.isDarkMode ? Icons.dark_mode : Icons.light_mode),
+              Icon(
+                themeProvider.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+              ),
               Switch(
                 value: themeProvider.isDarkMode,
                 onChanged: (value) => themeProvider.toggleTheme(),
@@ -135,7 +138,9 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 40),
                       Material(
                         color: const Color.fromARGB(255, 186, 153, 241),
-                        borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+                        borderRadius: BorderRadius.circular(
+                          changeButton ? 50 : 8,
+                        ),
                         child: InkWell(
                           onTap: () => moveToHome(context),
                           child: AnimatedContainer(
@@ -143,16 +148,20 @@ class _LoginPageState extends State<LoginPage> {
                             width: changeButton ? 50 : 150,
                             height: 50,
                             alignment: Alignment.center,
-                            child: changeButton
-                                ? const Icon(Icons.done, color: Colors.white)
-                                : const Text(
-                                    "Login",
-                                    style: TextStyle(
+                            child:
+                                changeButton
+                                    ? const Icon(
+                                      Icons.done,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                    )
+                                    : const Text(
+                                      "Login",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
                                     ),
-                                  ),
                           ),
                         ),
                       ),
